@@ -2,12 +2,22 @@
 
 $primary: #000;
 
-.box {
+.game {
   align-items: center;
   border: 1px solid $primary;
   display: flex;
   height: 80px;
-  justify-content: center; // justify the x's and o's maybe?
+  justify-content: center; // justify the x's and o's to center
   margin: 0;
+  padding: 0;
+}
+
+.current-player {
+  align-items: center;
+  border: 1px solid $primary;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  margin: 20px 0 0; // top margin only
   padding: 0;
 }

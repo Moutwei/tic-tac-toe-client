@@ -8,5 +8,5 @@
 const events = require('./events.js')
 
 $(() => {
-  $('.box').on('click', events.onClick)
+  $('.game').on('click', events.onClick) // GRID and current player
 })
