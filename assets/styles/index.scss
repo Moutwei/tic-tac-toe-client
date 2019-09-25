@@ -1,1 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
+
+$primary: #000;
+
+.box {
+  align-items: center;
+  border: 1px solid $primary;
+  display: flex;
+  height: 80px;
+  justify-content: center; // justify the x's and o's maybe?
+  margin: 0;
+  padding: 0;
+}
