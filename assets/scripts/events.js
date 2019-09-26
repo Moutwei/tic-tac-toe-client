@@ -74,14 +74,20 @@ const onClick = (event) => { // event.target grabs the element!
     $('#player').text('PLAYER 2 WINS')
     console.log('PLAYER 2 WINS!')
   }
-  // CHECKS TIE!!!!!
+  // CHECKS TIE!!!!! only needed to be valid for player 1
   if (clickCount === 9) {
     if ($('#player').text() !== 'PLAYER 1 WINS') {
       console.log('TIE')
+      $('.game').off('click')
     }
   }
-  // CHECKS IF GAME IS OVER OR NOT
-  if ($('#player').text() === ('PLAYER 1 WINS' || 'PLAYER 2 WINS')) {
+  // CHECKS IF GAME IS OVER OR NOT for Player 1
+  if ($('#player').text() === 'PLAYER 1 WINS') {
+    console.log('GAME OVER')
+    $('#player').text('GAME OVER')
+  }
+  // CHECKS IF GAME IS OVER OR NOT for Player 2
+  if ($('#player').text() === 'PLAYER 2 WINS') {
     console.log('GAME OVER')
     $('#player').text('GAME OVER')
   }
@@ -89,6 +95,26 @@ const onClick = (event) => { // event.target grabs the element!
   if ($('#player').text() === 'GAME OVER') {
     $('.game').off('click')
   }
+}
+
+// NEW GAME FUNCTION!
+const onNewGame = (event) => {
+  placedLocations = [ // puts x's and o's in empty array
+    '', // 0
+    '', // 1
+    '', // 2
+    '', // 3
+    '', // 4
+    '', // 5
+    '', // 6
+    '', // 7
+    '' // 8
+  ]
+  myClick = 'X'
+  $('#player').text('Player 1\'s | Place an X!')
+  $('.game').text('')
+  $('.game').on('click', onClick)
+  clickCount = 0
 }
 
 // for (let i = 0; i <= myElements.length; i++) {
@@ -108,5 +134,6 @@ const onClick = (event) => { // event.target grabs the element!
 }
 */
 module.exports = {
-  onClick
+  onClick,
+  onNewGame
 }
