@@ -9,4 +9,5 @@ const events = require('./events.js')
 
 $(() => {
   $('.game').on('click', events.onClick) // GRID and current player
+  $('#new-game').on('click', events.onNewGame)
 })
