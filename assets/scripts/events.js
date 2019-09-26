@@ -8,17 +8,6 @@ $('#player').text('Player 1\'s | Place an X!')
 let player1 = 'playing...' // current status
 let player2 = 'playing...'
 
-// all possible location combinations for three x's or o's in a row
-const winningCombinations = [
-  [0, 1, 2], // Row Winning Combinations
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6], // Collumn Winning Combinations
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8], // Cross Winning Combinations
-  [2, 4, 6]
-]
 let placedLocations = [ // puts x's and o's in empty array
   '', // 0
   '', // 1
@@ -30,6 +19,7 @@ let placedLocations = [ // puts x's and o's in empty array
   '', // 7
   '' // 8
 ]
+let clickCount = 0
 // onClick handles both the GAME GRID and Turn (current-player) Box
 const onClick = (event) => { // event.target grabs the element!
   // code for displaying x's or o's and if already clicked
@@ -42,6 +32,8 @@ const onClick = (event) => { // event.target grabs the element!
       $('#player').text('Player 2\'s | Place an O!')
       // FILLS placedLocations[] array with locations!
       placedLocations[event.target.id] = 'X'
+      clickCount++
+      console.log(clickCount)
     } else {
       // places o's
       $(event.target).text('O')
@@ -50,11 +42,53 @@ const onClick = (event) => { // event.target grabs the element!
       $('#player').text('Player 1\'s | Place an X!')
       // FILLS placedLocations[] array with locations!
       placedLocations[event.target.id] = 'O'
+      clickCount++
+      console.log(clickCount)
     }
   } else {
-    console.log('CANNOT CLICK AGAIN')
+    console.log('CANNOT PLACE AGAIN')
+    $('#player').text('CANNOT PLACE AGAIN')
   }
-  console.log(placedLocations) // FOUND THE LOCATIONS
+  console.log(placedLocations) // FOUND THE LOCATIONS ----------------- console
+
+  // PLAYER 1 and 2 WIN TEST
+  if ((placedLocations[0] === 'X' && placedLocations[1] === 'X' && placedLocations[2] === 'X') ||
+  (placedLocations[3] === 'X' && placedLocations[4] === 'X' && placedLocations[5] === 'X') ||
+  (placedLocations[6] === 'X' && placedLocations[7] === 'X' && placedLocations[8] === 'X') ||
+  (placedLocations[0] === 'X' && placedLocations[3] === 'X' && placedLocations[6] === 'X') ||
+  (placedLocations[1] === 'X' && placedLocations[4] === 'X' && placedLocations[7] === 'X') ||
+  (placedLocations[2] === 'X' && placedLocations[5] === 'X' && placedLocations[8] === 'X') ||
+  (placedLocations[0] === 'X' && placedLocations[4] === 'X' && placedLocations[8] === 'X') ||
+  (placedLocations[2] === 'X' && placedLocations[4] === 'X' && placedLocations[6] === 'X')) {
+    $('#player').text('PLAYER 1 WINS')
+    console.log('PLAYER 1 WINS!')
+  }
+  if ((placedLocations[0] === 'O' && placedLocations[1] === 'O' && placedLocations[2] === 'O') ||
+  (placedLocations[3] === 'O' && placedLocations[4] === 'O' && placedLocations[5] === 'O') ||
+  (placedLocations[6] === 'O' && placedLocations[7] === 'O' && placedLocations[8] === 'O') ||
+  (placedLocations[0] === 'O' && placedLocations[3] === 'O' && placedLocations[6] === 'O') ||
+  (placedLocations[1] === 'O' && placedLocations[4] === 'O' && placedLocations[7] === 'O') ||
+  (placedLocations[2] === 'O' && placedLocations[5] === 'O' && placedLocations[8] === 'O') ||
+  (placedLocations[0] === 'O' && placedLocations[4] === 'O' && placedLocations[8] === 'O') ||
+  (placedLocations[2] === 'O' && placedLocations[4] === 'O' && placedLocations[6] === 'O')) {
+    $('#player').text('PLAYER 2 WINS')
+    console.log('PLAYER 2 WINS!')
+  }
+  // CHECKS TIE!!!!!
+  if (clickCount === 9) {
+    if ($('#player').text() !== 'PLAYER 1 WINS') {
+      console.log('TIE')
+    }
+  }
+  // CHECKS IF GAME IS OVER OR NOT
+  if ($('#player').text() === ('PLAYER 1 WINS' || 'PLAYER 2 WINS')) {
+    console.log('GAME OVER')
+    $('#player').text('GAME OVER')
+  }
+  // Makes game unclickable if the turn box is 'GAME OVER'
+  if ($('#player').text() === 'GAME OVER') {
+    $('.game').off('click')
+  }
 }
 
 // for (let i = 0; i <= myElements.length; i++) {
