@@ -34,10 +34,21 @@ const signOut = () => {
     }
   })
 }
+// CREATES GAME
+const play = () => {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/games',
+    headers: { // reason for this is this instruction! ---> (requires Authorization header)
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  play
 }
