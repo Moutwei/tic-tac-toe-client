@@ -8,6 +8,11 @@
 const events = require('./events.js')
 
 $(() => {
+  // GAME HANDLERS
   $('.game').on('click', events.onClick) // GRID and current player
   $('#new-game').on('click', events.onNewGame)
+  // API HANDLERS
+  $('#sign-up').on('submit', events.onSignUp)
+  $('#sign-in').on('submit', events.onSignIn)
+  $('#change-password').on('submit', events.onChangePassword)
 })

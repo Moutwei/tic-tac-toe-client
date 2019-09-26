@@ -1,13 +1,11 @@
+'use-strict'
+const getFormFields = require('../../lib/get-form-fields.js') // ../ go up
 const api = require('./api.js') // ./ in same folder
 const ui = require('./ui.js')
 
+// initializers
 let myClick = 'X'
 $('#player').text('Player 1\'s | Place an X!')
-
-// For determining winner or loser
-let player1 = 'playing...' // current status
-let player2 = 'playing...'
-
 let placedLocations = [ // puts x's and o's in empty array
   '', // 0
   '', // 1
@@ -117,23 +115,37 @@ const onNewGame = (event) => {
   clickCount = 0
 }
 
-// for (let i = 0; i <= myElements.length; i++) {
-//  $(myElements[i]).click(function () {
-//  $(this).data('clicked', true)
-//  })
-// if ($(myElements[i]).data('clicked')) {
-// $(myElements[i]).html('X')
-// }
-// }
-
-/*
-  api.click() // AJAX methods // might need data in parameters for o and x
-  // FINISH IN API.js ^^^
-    .then(ui.onClickSuccess) // This is where you display something on your HTML
-    .catch(ui.onClickFailure) // another way of saying on VALID CLICK
+// ****************************** API EVENTS ****************************
+const onSignUp = (event) => {
+  event.preventDefault()
+  console.log('On Sign Up Event')
+  const form = event.target // grabs element in this function
+  const formData = getFormFields(form) // getFormFields grabs data into object
+  console.log('Form Data is', formData)
+  api.signUp(formData) // AJAX methods
+    .then(ui.onSignUpSuccess) // This is where you display something on your HTML
+    .catch(ui.onSignUpFailure)
 }
-*/
+const onSignIn = (event) => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.signIn(formData)
+    .then(ui.onSignInSuccess)
+    .catch(ui.onSignInFailure)
+}
+const onChangePassword = (event) => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.changePassword(formData)
+    .then(ui.onChangePasswordSuccess)
+    .catch(ui.onChangePasswordFailure)
+}
 module.exports = {
   onClick,
-  onNewGame
+  onNewGame,
+  onSignUp,
+  onSignIn,
+  onChangePassword
 }
