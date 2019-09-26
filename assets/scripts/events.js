@@ -18,6 +18,8 @@ let placedLocations = [ // puts x's and o's in empty array
   '' // 8
 ]
 let clickCount = 0
+// Hiders
+$('#play').hide()
 // onClick handles both the GAME GRID and Turn (current-player) Box
 const onClick = (event) => { // event.target grabs the element!
   // code for displaying x's or o's and if already clicked
@@ -142,10 +144,25 @@ const onChangePassword = (event) => {
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onChangePasswordFailure)
 }
+const onSignOut = (event) => {
+  event.preventDefault()
+  api.signOut()
+    .then(ui.onSignOutSuccess)
+    .catch(ui.onSignOutFailure)
+}
+const onPlay = (event) => {
+  event.preventDefault()
+  $('#games-played').text(event)
+  api.play()
+    .then(ui.onPlayClick)
+    .catch(ui.onPlayClickFailure)
+}
 module.exports = {
   onClick,
   onNewGame,
   onSignUp,
   onSignIn,
-  onChangePassword
+  onChangePassword,
+  onSignOut,
+  onPlay
 }

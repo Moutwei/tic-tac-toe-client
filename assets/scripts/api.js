@@ -25,9 +25,30 @@ const changePassword = (formData) => {
     data: formData
   })
 }
+const signOut = () => {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/sign-out',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+// CREATES GAME
+const play = () => {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/games',
+    headers: { // reason for this is this instruction! ---> (requires Authorization header)
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
-  changePassword
+  changePassword,
+  signOut,
+  play
 }

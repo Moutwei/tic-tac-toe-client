@@ -16,10 +16,12 @@ const failureMessage = newText => {
 
 const onSignUpSuccess = () => {
   successMessage('Sign Up Success')
+  $('#sign-up').trigger('reset') // < clears form data!
 }
 
 const onSignUpFailure = () => {
   failureMessage('Sign Up Failed')
+  $('#sign-up').trigger('reset')
 }
 
 const onSignInSuccess = (responseData) => {
@@ -28,26 +30,41 @@ const onSignInSuccess = (responseData) => {
   // saves user from API to use later
   store.user = responseData.user
   console.log('store is', store)
+  $('#sign-in').trigger('reset')
+  $('#play').show() // if signed in shows play button
 }
 
 const onSignInFailure = () => {
   failureMessage('Sign In Failed')
+  $('#sign-in').trigger('reset')
 }
 
 const onChangePasswordSuccess = () => {
   successMessage('Password Change Success')
+  $('#change-password').trigger('reset')
 }
 
 const onChangePasswordFailure = () => {
   failureMessage('Password Change Failed')
+  $('#change-password').trigger('reset')
 }
 
 const onSignOutSuccess = () => {
   successMessage('Signed Out Successfully')
+  $('#sign-up').trigger('reset')
+  $('#sign-in').trigger('reset')
+  $('#change-password').trigger('reset')
 }
 
 const onSignOutFailure = () => {
   failureMessage('Sign Out Failed')
+  $('#sign-up').trigger('reset')
+  $('#sign-in').trigger('reset')
+  $('#change-password').trigger('reset')
+}
+
+const onPlayClick = () => {
+//  $('#games-played').text(event.target.id)
 }
 
 module.exports = {
@@ -58,5 +75,6 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onPlayClick
 }

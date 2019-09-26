@@ -45,11 +45,17 @@
       </form>
 
       <hr>
+
+      <form id="sign-out">
+        <button>Sign Out</button>
+      </form>
+
+      <hr>
       <h4 id="message"></h4>
       <hr>
 
       <!--  BOOTSTRAP GRID for GAME -->
-      <form class="container-fluid">
+      <form class="container">
           <div class="row">
             <h3 id="0" class="col-4 game"></h3>
             <h3 id="1" class="col-4 game"></h3>
@@ -74,7 +80,18 @@
 
       <hr>
 
+      <h2>Games Played</h2>
+      <form class="container-fluid">
+        <div class="row">
+          <p id="games-played" class="col-3 current-game"></p>
+        </div>
+      </form>
+
+      <hr>
+
       <button id="new-game">New Game</button>
+      <button id="play">Play</button> <!-- creates game api -->
+
 
     </body>
 </html>
