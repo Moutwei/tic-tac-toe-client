@@ -63,10 +63,6 @@ const onSignOutFailure = () => {
   $('#change-password').trigger('reset')
 }
 
-const onPlayClick = () => {
-//  $('#games-played').text(event.target.id)
-}
-
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -75,6 +71,5 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure,
-  onPlayClick
+  onSignOutFailure
 }

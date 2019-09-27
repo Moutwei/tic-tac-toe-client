@@ -34,6 +34,10 @@ const onClick = (event) => { // event.target grabs the element!
       placedLocations[event.target.id] = 'X'
       clickCount++
       console.log(clickCount)
+      // api for updating game with X
+      api.updateGameX(event.target.id)
+        .then()
+        .catch()
     } else {
       // places o's
       $(event.target).text('O')
@@ -44,6 +48,10 @@ const onClick = (event) => { // event.target grabs the element!
       placedLocations[event.target.id] = 'O'
       clickCount++
       console.log(clickCount)
+      // api for updating game with O
+      api.updateGameO(event.target.id)
+        .then()
+        .catch()
     }
   } else {
     console.log('CANNOT PLACE AGAIN')
@@ -98,7 +106,7 @@ const onClick = (event) => { // event.target grabs the element!
 }
 
 // NEW GAME FUNCTION!
-const onNewGame = (event) => {
+const onClearBoard = (event) => {
   placedLocations = [ // puts x's and o's in empty array
     '', // 0
     '', // 1
@@ -150,19 +158,29 @@ const onSignOut = (event) => {
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)
 }
-const onPlay = (event) => {
+const onCreateGame = (event) => {
   event.preventDefault()
-  $('#games-played').text(event)
-  api.play()
-    .then(ui.onPlayClick)
-    .catch(ui.onPlayClickFailure)
+  const game = event.target
+  const gameData = getFormFields(game)
+  api.create(gameData)
+    .then()
+    .catch()
+}
+const onGamesPlayed = (event) => {
+  event.preventDefault()
+  const games = event.target
+  const gamesPlayedData = getFormFields(games)
+  api.gamesPlayed(gamesPlayedData)
+    .then()
+    .catch()
 }
 module.exports = {
   onClick,
-  onNewGame,
+  onClearBoard,
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
-  onPlay
+  onCreateGame,
+  onGamesPlayed
 }
