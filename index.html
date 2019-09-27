@@ -15,87 +15,100 @@
     <body>
       <h1>Welcome to MOUTWEI'S TIC TAC TOE</h1>
 
-      <hr>
-
-      <h2>Sign-Up</h2>
-      <form id="sign-up">
-        <input type="email" name="credentials[email]" placeholder="Enter Email...">
-        <input type="password" name="credentials[password]" placeholder="Enter Password...">
-        <input type="password" name="credentials[password_confirmation]" placeholder="Confrimation...">
-        <button>Sign Up</button> <!-- any button inside form will work when referencing the form id -->
-      </form>
-
-      <hr>
-
+      <section class="sign-in-box">
       <h2>Sign-In</h2>
       <form id="sign-in">
         <input type="email" name="credentials[email]" placeholder="Enter Email...">
         <input type="password" name="credentials[password]" placeholder="Enter Password...">
         <button>Sign In</button>
       </form>
+      </section>
 
-      <hr>
+      <button id="sign-up-button">Sign Up</button>
 
-      <h2>Change Password</h2>
-      <p style='color: grey; margin: 20px;'>SIGN-IN FIRST</p>
-      <form id="change-password">
-        <input type="password" name="passwords[old]" placeholder="Enter Old Password...">
-        <input type="password" name="passwords[new]" placeholder="Enter New Password...">
-        <button>Change Password</button>
-      </form>
+        <section class="sign-up-box">
+        <h2>Sign-Up</h2>
+        <form id="sign-up">
+          <input type="email" name="credentials[email]" placeholder="Enter Email...">
+          <input type="password" name="credentials[password]" placeholder="Enter Password...">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confrimation...">
+          <button>Sign Up</button> <!-- any button inside form will work when referencing the form id -->
+        </form>
+        </section>
 
-      <hr>
+        <hr>
 
-      <form id="sign-out">
-        <button>Sign Out</button>
-      </form>
+        <section class="change-password-box">
+        <h2>Change Password</h2>
+        <p style='color: grey; margin: 20px;'>SIGN-IN FIRST</p>
+        <form id="change-password">
+          <input type="password" name="passwords[old]" placeholder="Enter Old Password...">
+          <input type="password" name="passwords[new]" placeholder="Enter New Password...">
+          <button>Change Password</button>
+        </form>
+        </section>
 
-      <hr>
-      <h4 id="message"></h4>
-      <hr>
+        <h4 id="message"></h4>
 
-      <!--  BOOTSTRAP GRID for GAME -->
-      <form class="container">
+        <hr>
+
+        <section class="sign-out-box">
+        <form id="sign-out">
+          <button>Sign Out</button>
+        </form>
+        </section>
+
+        <hr>
+        <!--  BOOTSTRAP GRID for GAME -->
+        <section class="game-box">
+        <form class="container">
+            <div class="row">
+              <h3 id="0" class="col-4 game"></h3>
+              <h3 id="1" class="col-4 game"></h3>
+              <h3 id="2" class="col-4 game"></h3>
+              <h3 id="3" class="col-4 game"></h3>
+              <h3 id="4" class="col-4 game"></h3>
+              <h3 id="5" class="col-4 game"></h3>
+              <h3 id="6" class="col-4 game"></h3>
+              <h3 id="7" class="col-4 game"></h3>
+              <h3 id="8" class="col-4 game"></h3>
+            </div>
+          </form>
+        </section>
+
+        <hr>
+
+        <section class="turn-box">
+        <h2>Turn</h2>
+        <form class="container-fluid">
           <div class="row">
-            <h3 id="0" class="col-4 game"></h3>
-            <h3 id="1" class="col-4 game"></h3>
-            <h3 id="2" class="col-4 game"></h3>
-            <h3 id="3" class="col-4 game"></h3>
-            <h3 id="4" class="col-4 game"></h3>
-            <h3 id="5" class="col-4 game"></h3>
-            <h3 id="6" class="col-4 game"></h3>
-            <h3 id="7" class="col-4 game"></h3>
-            <h3 id="8" class="col-4 game"></h3>
+            <p id="player" class="col-3 current-player"></p>
           </div>
         </form>
+        </section>
 
-      <hr>
+        <hr>
 
-      <h2>Turn</h2>
-      <form class="container-fluid">
-        <div class="row">
-          <p id="player" class="col-3 current-player"></p>
-        </div>
-      </form>
+        <section class="show-games-box">
+        <h2>Show Games</h2>
+        <form class="container-fluid">
+          <div class="row">
+            <p class="col-3 current-game"></p>
+          </div>
+          <button id="show-games">Show Games</button>
+        </form>
+        </section>
 
-      <hr>
+        <hr>
 
-      <h2>Show Games</h2>
-      <form class="container-fluid">
-        <div class="row">
-          <p class="col-3 current-game"></p>
-        </div>
-        <button id="show-games">Show Games</button>
-      </form>
+        <button id="clear-board">Clear-Board</button>
+        <button id="create-game">Create Game</button> <!-- creates game api -->
 
-      <hr>
+        <hr>
 
-      <button id="clear-board">Clear-Board</button>
-      <button id="create-game">Create Game</button> <!-- creates game api -->
-
-      <hr>
-
-      <h2 id="games-played"></h2>
-
+        <section class="games-played-box">
+        <h2>Games Played</h2>
+        <p id="games-played"></p>
+        </section>
     </body>
 </html>

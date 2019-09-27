@@ -18,8 +18,21 @@ let placedLocations = [ // puts x's and o's in empty array
   '' // 8
 ]
 let clickCount = 0
+
 // Hiders
-$('#play').hide()
+$('.sign-in-box')
+$('#sign-up-button')
+$('.sign-up-box')
+$('.change-password-box')
+$('#message')
+$('.sign-out-box')
+$('.game-box')
+$('.turn-box')
+$('.show-games-box')
+$('#clear-board') // button
+$('#create-game') // button
+$('.games-played-box')
+
 // onClick handles both the GAME GRID and Turn (current-player) Box
 const onClick = (event) => { // event.target grabs the element!
   // code for displaying x's or o's and if already clicked
