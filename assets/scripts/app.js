@@ -13,6 +13,7 @@ $(() => {
   $('#clear-board').on('click', events.onClearBoard)
   $('#create-game').on('click', events.onCreateGame) // creates game
   $('#show-games').on('click', events.onGamesPlayed) // gets amount of games
+  $('#sign-up-button').on('click', events.onSignUpButton) // GRID and current player
   // API HANDLERS
   $('#sign-up').on('submit', events.onSignUp)
   $('#sign-in').on('submit', events.onSignIn)

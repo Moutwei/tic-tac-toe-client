@@ -31,7 +31,6 @@ const onSignInSuccess = (responseData) => {
   store.user = responseData.user
   console.log('store is', store)
   $('#sign-in').trigger('reset')
-  $('#play').show() // if signed in shows play button
 }
 
 const onSignInFailure = () => {

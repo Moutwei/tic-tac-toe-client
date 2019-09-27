@@ -58,6 +58,7 @@ const gamesPlayed = () => {
       console.log('My Games: ', data)
       totalGames = data.games.length // GETS AMOUNT OF GAMES as ARRAY
       console.log(totalGames)
+      $('#games-played').text(totalGames)
     },
     headers: { // reason for this is this instruction! ---> (requires Authorization header)
       Authorization: 'Token token=' + store.user.token
