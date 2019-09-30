@@ -1,35 +1,142 @@
 @import '~bootstrap/scss/bootstrap';
 
-$primary: #000;
+$black: #0B0310;
+$dark: #1F2833;
+$grey: #C5C6C7;
+$light-blue: #66FCF1;
+$grey-blue: #45A29E;
+
+html {
+  color: $light-blue;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: $light-blue;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8%;
+}
+
+body {
+  background-color: $black;
+}
+
+.game-box {
+  margin-bottom: 5%;
+}
+
+button {
+  color: $light-blue;
+  background-color: $grey-blue;
+  width: 150px;
+  margin-top: 10px;
+  display: block;
+  justify-content: center;
+}
+
+.sign-in-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15%;
+}
+
+.sign-out-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-game {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5% 0 0 0;
+}
+
+.cancel-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-up-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cpb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  color: $light-blue;
+}
+
+.sign-up-box {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.turn-box {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  height: 50vmin;
+  width: 50vmin;
+  margin: auto;
+}
 
 .game {
   align-items: center;
-  border: 5px solid $primary;
+  border-top: 2px solid $light-blue;
+  border-right: 2px solid $light-blue;
+  color: $light-blue;
   display: flex;
-  height: 80px;
+  height: calc(100% / 3);
+  width: calc(100% / 3);
+  cursor: pointer;
   justify-content: center; // justify the x's and o's to center
   margin: 0;
   padding: 0;
 }
 
-.scoreBoard {
-  align-items: center;
-  border: 5px solid green;
-  display: flex;
-  height: 80px;
-  justify-content: center; // justify the x's and o's to center
-  margin: 0;
-  padding: 0;
+.game:nth-child(3n) {
+  border-right: 0;
+}
+
+.game:nth-child(-n + 3) {
+  border-top: 0;
 }
 
 .current-player {
   align-items: center;
-  border: 1px solid $primary;
+  border: 1px solid $light-blue;
+  color: $light-blue;
   display: flex;
   height: 40px;
   justify-content: center;
   margin: 20px 0 0; // top margin only
   padding: 0;
+}
+
+.games-played-box {
+  color: $light-blue;
+  margin: 0;
+}
+
+.game-box {
+  margin: 0;
 }
 
 .success {
