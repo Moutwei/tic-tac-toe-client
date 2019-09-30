@@ -25,6 +25,7 @@
       </section>
 
       <button id="sign-up-button">Sign Up</button>
+      <button id="change-password-button">Change Password</button>
 
         <section class="sign-up-box">
         <h2>Sign-Up</h2>
@@ -36,11 +37,8 @@
         </form>
         </section>
 
-        <hr>
-
         <section class="change-password-box">
         <h2>Change Password</h2>
-        <p style='color: grey; margin: 20px;'>SIGN-IN FIRST</p>
         <form id="change-password">
           <input type="password" name="passwords[old]" placeholder="Enter Old Password...">
           <input type="password" name="passwords[new]" placeholder="Enter New Password...">
@@ -48,17 +46,16 @@
         </form>
         </section>
 
+        <button id="cancel">Cancel</button>
+
         <h4 id="message"></h4>
 
-        <hr>
-
         <section class="sign-out-box">
-        <form id="sign-out">
+        <form class="sign-out">
           <button>Sign Out</button>
         </form>
         </section>
 
-        <hr>
         <!--  BOOTSTRAP GRID for GAME -->
         <section class="game-box">
         <form class="container">
@@ -76,7 +73,8 @@
           </form>
         </section>
 
-        <hr>
+        <!-- creates game api AND clears board -->
+        <button class="create-game clear-board">New Game</button>
 
         <section class="turn-box">
         <h2>Turn</h2>
@@ -87,28 +85,10 @@
         </form>
         </section>
 
-        <hr>
-
-        <section class="show-games-box">
-        <h2>Show Games</h2>
-        <form class="container-fluid">
-          <div class="row">
-            <p class="col-3 current-game"></p>
-          </div>
-          <button id="show-games">Show Games</button>
-        </form>
-        </section>
-
-        <hr>
-
-        <button id="clear-board">Clear-Board</button>
-        <button id="create-game">Create Game</button> <!-- creates game api -->
-
-        <hr>
-
         <section class="games-played-box">
         <h2>Games Played</h2>
         <p id="games-played"></p>
         </section>
+
     </body>
 </html>

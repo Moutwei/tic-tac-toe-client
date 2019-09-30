@@ -18,20 +18,24 @@ let placedLocations = [ // puts x's and o's in empty array
   '' // 8
 ]
 let clickCount = 0
+let player1wins = 0
+let player2wins = 0
 
 // Hiders
 $('.sign-in-box')
 $('#sign-up-button')
-$('.sign-up-box')
-$('.change-password-box')
-$('#message')
-$('.sign-out-box')
-$('.game-box')
-$('.turn-box')
-$('.show-games-box')
-$('#clear-board') // button
-$('#create-game') // button
-$('.games-played-box')
+$('#change-password-button').hide()
+$('.sign-up-box').hide()
+$('.change-password-box').hide()
+$('#message').hide()
+$('.sign-out-box').hide()
+$('.game-box').hide()
+$('.turn-box').hide()
+$('.show-games-box').hide()
+$('.clear-board').hide() // button
+$('.create-game').hide() // button
+$('.games-played-box').hide()
+$('#cancel').hide()
 
 // onClick handles both the GAME GRID and Turn (current-player) Box
 const onClick = (event) => { // event.target grabs the element!
@@ -66,9 +70,6 @@ const onClick = (event) => { // event.target grabs the element!
         .then()
         .catch()
     }
-  } else {
-    console.log('CANNOT PLACE AGAIN')
-    $('#player').text('CANNOT PLACE AGAIN')
   }
   console.log(placedLocations) // FOUND THE LOCATIONS ----------------- console
 
@@ -95,22 +96,37 @@ const onClick = (event) => { // event.target grabs the element!
     $('#player').text('PLAYER 2 WINS')
     console.log('PLAYER 2 WINS!')
   }
+  // if TIE
   // CHECKS TIE!!!!! only needed to be valid for player 1
   if (clickCount === 9) {
     if ($('#player').text() !== 'PLAYER 1 WINS') {
+      onGamesPlayed(event) // shows amount of games played
       console.log('TIE')
+      $('#player').text('TIE')
       $('.game').off('click')
+      $('.create-game').show()
     }
   }
+  // IF PLAYER 1 WINS
   // CHECKS IF GAME IS OVER OR NOT for Player 1
   if ($('#player').text() === 'PLAYER 1 WINS') {
+    onGamesPlayed(event) // shows amount of games played
+    player1wins++
     console.log('GAME OVER')
-    $('#player').text('GAME OVER')
+    $('.create-game').show()
+    $('.game').off('click')
+    $('.score-by-wins-box').show()
   }
+
+  // IF PLAYER 2 WINS
   // CHECKS IF GAME IS OVER OR NOT for Player 2
   if ($('#player').text() === 'PLAYER 2 WINS') {
+    onGamesPlayed(event) // shows amount of games played
+    player2wins++
     console.log('GAME OVER')
-    $('#player').text('GAME OVER')
+    $('.create-game').show()
+    $('.game').off('click')
+    $('.score-by-wins-box').show()
   }
   // Makes game unclickable if the turn box is 'GAME OVER'
   if ($('#player').text() === 'GAME OVER') {
@@ -167,9 +183,21 @@ const onChangePassword = (event) => {
 }
 const onSignOut = (event) => {
   event.preventDefault()
+  onClearBoard() // Clears board on sign out as well
   api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)
+  // HIDE AND SHOW
+  $('.game-box').hide()
+  $('.show-games-box').hide()
+  $('.games-played-box').hide()
+  $('.turn-box').hide()
+  $('.sign-out-box').hide()
+  $('.sign-in-box').show()
+  $('#change-password-button').hide()
+  $('#sign-up-button').show()
+  $('.create-game').hide() // NEW GAME
+  $('.score-by-wins-box').hide()
 }
 const onCreateGame = (event) => {
   event.preventDefault()
@@ -178,7 +206,16 @@ const onCreateGame = (event) => {
   api.create(gameData)
     .then()
     .catch()
+  // HIDE AND SHOW
+  $('.create-game').hide()
+  $('.game-box').show()
+  $('.show-games-box').show()
+  $('.games-played-box').show()
+  $('.turn-box').show()
+  $('#change-password-button').hide()
+  $('.sign-out-box').show() // do something when clicked REMEMBER THIS
 }
+// Gets amount of games played
 const onGamesPlayed = (event) => {
   event.preventDefault()
   const games = event.target
@@ -186,6 +223,34 @@ const onGamesPlayed = (event) => {
   api.gamesPlayed(gamesPlayedData)
     .then()
     .catch()
+}
+const onSignUpButton = (event) => {
+  $('#sign-up-button').hide()
+  $('.sign-up-box').show()
+  $('.sign-in-box').hide()
+  $('#cancel').show()
+  $('#change-password-button').hide()
+  $('#message').hide()
+}
+const onCancel = (event) => {
+  $('#sign-in').trigger('reset')
+  $('#sign-up').trigger('reset')
+  $('#change-password').trigger('reset')
+  $('.sign-in-box').show()
+  $('#sign-up-button').show()
+  $('.sign-up-box').hide()
+  $('#cancel').hide()
+  $('#change-password-button').hide()
+  $('.change-password-box').hide()
+  $('#message').hide()
+}
+const onChangePasswordButton = (event) => {
+  $('#cancel').show()
+  $('#sign-up-button').hide()
+  $('.change-password-box').show()
+  $('#change-password-button').hide()
+  $('.create-game').hide()
+  $('.sign-out-box').hide()
 }
 module.exports = {
   onClick,
@@ -195,5 +260,8 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onCreateGame,
-  onGamesPlayed
+  onGamesPlayed,
+  onSignUpButton,
+  onCancel,
+  onChangePasswordButton
 }
