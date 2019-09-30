@@ -18,8 +18,6 @@ let placedLocations = [ // puts x's and o's in empty array
   '' // 8
 ]
 let clickCount = 0
-let player1wins = 0
-let player2wins = 0
 
 // Hiders
 $('.sign-in-box')
@@ -103,7 +101,7 @@ const onClick = (event) => { // event.target grabs the element!
       onGamesPlayed(event) // shows amount of games played
       console.log('TIE')
       $('#player').text('TIE')
-      $('.game').off('click')
+
       $('.create-game').show()
     }
   }
@@ -111,7 +109,6 @@ const onClick = (event) => { // event.target grabs the element!
   // CHECKS IF GAME IS OVER OR NOT for Player 1
   if ($('#player').text() === 'PLAYER 1 WINS') {
     onGamesPlayed(event) // shows amount of games played
-    player1wins++
     console.log('GAME OVER')
     $('.create-game').show()
     $('.game').off('click')
@@ -122,7 +119,6 @@ const onClick = (event) => { // event.target grabs the element!
   // CHECKS IF GAME IS OVER OR NOT for Player 2
   if ($('#player').text() === 'PLAYER 2 WINS') {
     onGamesPlayed(event) // shows amount of games played
-    player2wins++
     console.log('GAME OVER')
     $('.create-game').show()
     $('.game').off('click')
