@@ -10,13 +10,15 @@ const events = require('./events.js')
 $(() => {
   // GAME HANDLERS
   $('.game').on('click', events.onClick) // GRID and current player
-  $('#clear-board').on('click', events.onClearBoard)
-  $('#create-game').on('click', events.onCreateGame) // creates game
+  $('.clear-board').on('click', events.onClearBoard)
+  $('.create-game').on('click', events.onCreateGame) // creates game
   $('#show-games').on('click', events.onGamesPlayed) // gets amount of games
-  $('#sign-up-button').on('click', events.onSignUpButton) // GRID and current player
+  $('#sign-up-button').on('click', events.onSignUpButton)
+  $('#cancel').on('click', events.onCancel)
+  $('#change-password-button').on('click', events.onChangePasswordButton)
   // API HANDLERS
   $('#sign-up').on('submit', events.onSignUp)
   $('#sign-in').on('submit', events.onSignIn)
   $('#change-password').on('submit', events.onChangePassword)
-  $('#sign-out').on('submit', events.onSignOut)
+  $('.sign-out').on('submit', events.onSignOut)
 })

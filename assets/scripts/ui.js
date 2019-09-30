@@ -15,13 +15,20 @@ const failureMessage = newText => {
 }
 
 const onSignUpSuccess = () => {
-  successMessage('Sign Up Success')
+  successMessage('Sign Up Success, Please Sign In')
+  $('#sign-in').trigger('reset')
   $('#sign-up').trigger('reset') // < clears form data!
+  $('.sign-in-box').show()
+  $('.sign-up-box').hide()
+  $('#sign-up-button').show()
+  $('#message').show()
+  $('#cancel').hide()
 }
 
 const onSignUpFailure = () => {
   failureMessage('Sign Up Failed')
   $('#sign-up').trigger('reset')
+  $('#message').show()
 }
 
 const onSignInSuccess = (responseData) => {
@@ -31,21 +38,37 @@ const onSignInSuccess = (responseData) => {
   store.user = responseData.user
   console.log('store is', store)
   $('#sign-in').trigger('reset')
+  // HIDE AND SHOW
+  $('#sign-up-button').hide()
+  $('#change-password-button').show()
+  $('.change-password-box').hide()
+  $('.sign-in-box').hide()
+  $('.sign-out-box').show()
+  $('.create-game').show() // NEW GAME\
+  $('#message').hide()
 }
 
 const onSignInFailure = () => {
   failureMessage('Sign In Failed')
   $('#sign-in').trigger('reset')
+  $('#sign-up-button').show()
+  $('#message').show()
 }
 
 const onChangePasswordSuccess = () => {
-  successMessage('Password Change Success')
+  successMessage('Password Change Success, Please Sign In')
   $('#change-password').trigger('reset')
+  $('.change-password-box').hide()
+  $('#cancel').hide()
+  $('.sign-in-box').show()
+  $('#sign-up-button').show()
+  $('#message').show()
 }
 
 const onChangePasswordFailure = () => {
   failureMessage('Password Change Failed')
   $('#change-password').trigger('reset')
+  $('#message').show()
 }
 
 const onSignOutSuccess = () => {
