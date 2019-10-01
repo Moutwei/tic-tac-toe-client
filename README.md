@@ -26,7 +26,8 @@ information and game statistics.
 - Lastly, once all of the functions were done CSS styles were implemented for
 a visually appealing experience.
 
-WIREFRAMES AND USER STORIES LINKED HERE
+[Wireframe](wireframe.png)
+[User Story](userstory.png)
 
 # Version Documentation
 
