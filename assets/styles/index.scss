@@ -37,13 +37,21 @@ body {
 
 }
 
+input {
+
+}
+
 button {
-  color: $light-blue;
+  color: $dark;
   background-color: $grey-blue;
   width: 150px;
   margin-top: 10px;
   display: block;
   justify-content: center;
+}
+
+button:hover {
+  color: $light-blue;
 }
 
 .half-title {
@@ -136,6 +144,10 @@ h2 {
   justify-content: center; // justify the x's and o's to center
   margin: 0;
   padding: 0;
+}
+
+.game:hover {
+  background-color: $grey-blue;
 }
 
 .game:nth-child(3n) {

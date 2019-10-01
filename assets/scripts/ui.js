@@ -44,7 +44,6 @@ const onSignInSuccess = (responseData) => {
   $('.sign-out-box').show()
   $('.create-game').show() // NEW GAME\
   $('#message').show()
-  $('#games-played').html('')
   // Fixed Bug
 }
 
@@ -56,13 +55,19 @@ const onSignInFailure = () => {
 }
 
 const onChangePasswordSuccess = () => {
-  successMessage('Password Change Success, Please Sign In')
+  successMessage('Password Change Success')
   $('#change-password').trigger('reset')
+  // HIDE AND SHOW
+  $('#sign-up-button').hide()
+  $('#change-password-button').show()
   $('.change-password-box').hide()
-  $('#cancel').hide()
-  $('.sign-in-box').show()
-  $('#sign-up-button').show()
+  $('.sign-in-box').hide()
+  $('.sign-out-box').show()
+  $('.create-game').show() // NEW GAME\
   $('#message').show()
+  $('#games-played').text('')
+  $('#cancel').hide()
+  // Fixed Bug
 }
 
 const onChangePasswordFailure = () => {
