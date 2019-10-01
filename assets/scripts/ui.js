@@ -33,10 +33,8 @@ const onSignUpFailure = () => {
 
 const onSignInSuccess = (responseData) => {
   successMessage('Sign In Success')
-  console.log('responseData is', responseData) // this is where we start using the token or keep track of user
   // saves user from API to use later
   store.user = responseData.user
-  console.log('store is', store)
   $('#sign-in').trigger('reset')
   // HIDE AND SHOW
   $('#sign-up-button').hide()
@@ -45,7 +43,7 @@ const onSignInSuccess = (responseData) => {
   $('.sign-in-box').hide()
   $('.sign-out-box').show()
   $('.create-game').show() // NEW GAME\
-  $('#message').hide()
+  $('#message').show()
 }
 
 const onSignInFailure = () => {
@@ -76,6 +74,7 @@ const onSignOutSuccess = () => {
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
   $('#change-password').trigger('reset')
+  $('#message').show()
 }
 
 const onSignOutFailure = () => {
@@ -83,6 +82,7 @@ const onSignOutFailure = () => {
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
   $('#change-password').trigger('reset')
+  $('#message').show()
 }
 
 module.exports = {

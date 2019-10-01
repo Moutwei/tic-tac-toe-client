@@ -48,7 +48,6 @@ const onClick = (event) => { // event.target grabs the element!
       // FILLS placedLocations[] array with locations!
       placedLocations[event.target.id] = 'X'
       clickCount++
-      console.log(clickCount)
       // api for updating game with X
       api.updateGameX(event.target.id)
         .then()
@@ -62,14 +61,12 @@ const onClick = (event) => { // event.target grabs the element!
       // FILLS placedLocations[] array with locations!
       placedLocations[event.target.id] = 'O'
       clickCount++
-      console.log(clickCount)
       // api for updating game with O
       api.updateGameO(event.target.id)
         .then()
         .catch()
     }
   }
-  console.log(placedLocations) // FOUND THE LOCATIONS ----------------- console
 
   // PLAYER 1 and 2 WIN TEST
   if ((placedLocations[0] === 'X' && placedLocations[1] === 'X' && placedLocations[2] === 'X') ||
@@ -81,7 +78,6 @@ const onClick = (event) => { // event.target grabs the element!
   (placedLocations[0] === 'X' && placedLocations[4] === 'X' && placedLocations[8] === 'X') ||
   (placedLocations[2] === 'X' && placedLocations[4] === 'X' && placedLocations[6] === 'X')) {
     $('#player').text('PLAYER 1 WINS')
-    console.log('PLAYER 1 WINS!')
   }
   if ((placedLocations[0] === 'O' && placedLocations[1] === 'O' && placedLocations[2] === 'O') ||
   (placedLocations[3] === 'O' && placedLocations[4] === 'O' && placedLocations[5] === 'O') ||
@@ -92,14 +88,12 @@ const onClick = (event) => { // event.target grabs the element!
   (placedLocations[0] === 'O' && placedLocations[4] === 'O' && placedLocations[8] === 'O') ||
   (placedLocations[2] === 'O' && placedLocations[4] === 'O' && placedLocations[6] === 'O')) {
     $('#player').text('PLAYER 2 WINS')
-    console.log('PLAYER 2 WINS!')
   }
   // if TIE
   // CHECKS TIE!!!!! only needed to be valid for player 1
   if (clickCount === 9) {
     if ($('#player').text() !== 'PLAYER 1 WINS') {
       onGamesPlayed(event) // shows amount of games played
-      console.log('TIE')
       $('#player').text('TIE')
 
       $('.create-game').show()
@@ -109,7 +103,6 @@ const onClick = (event) => { // event.target grabs the element!
   // CHECKS IF GAME IS OVER OR NOT for Player 1
   if ($('#player').text() === 'PLAYER 1 WINS') {
     onGamesPlayed(event) // shows amount of games played
-    console.log('GAME OVER')
     $('.create-game').show()
     $('.game').off('click')
     $('.score-by-wins-box').show()
@@ -119,7 +112,6 @@ const onClick = (event) => { // event.target grabs the element!
   // CHECKS IF GAME IS OVER OR NOT for Player 2
   if ($('#player').text() === 'PLAYER 2 WINS') {
     onGamesPlayed(event) // shows amount of games played
-    console.log('GAME OVER')
     $('.create-game').show()
     $('.game').off('click')
     $('.score-by-wins-box').show()
@@ -153,7 +145,6 @@ const onClearBoard = (event) => {
 // ****************************** API EVENTS ****************************
 const onSignUp = (event) => {
   event.preventDefault()
-  console.log('On Sign Up Event')
   const form = event.target // grabs element in this function
   const formData = getFormFields(form) // getFormFields grabs data into object
   console.log('Form Data is', formData)
@@ -210,6 +201,7 @@ const onCreateGame = (event) => {
   $('.turn-box').show()
   $('#change-password-button').hide()
   $('.sign-out-box').show() // do something when clicked REMEMBER THIS
+  $('#message').hide()
 }
 // Gets amount of games played
 const onGamesPlayed = (event) => {

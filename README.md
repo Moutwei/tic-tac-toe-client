@@ -34,3 +34,6 @@ Numbers before the . represents each game engine, CSS, and HTML update.
 Numbers after the . represents each API update. If 0, no update added.
 
 # Unsolved Problems
+
+- Would like to display game results for each player.
+- Organize more actions from events.js into ui.js.
