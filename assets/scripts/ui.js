@@ -44,6 +44,8 @@ const onSignInSuccess = (responseData) => {
   $('.sign-out-box').show()
   $('.create-game').show() // NEW GAME\
   $('#message').show()
+  $('#games-played').html('')
+  // Fixed Bug
 }
 
 const onSignInFailure = () => {
