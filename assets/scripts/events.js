@@ -44,7 +44,7 @@ const onClick = (event) => { // event.target grabs the element!
       $(event.target).text('X')
       myClick = 'O'
       // updates turn box
-      $('#player').text('Player 2\'s | Place an O!')
+      $('#player').text('Player 2\'s Turn | Place an O!')
       // FILLS placedLocations[] array with locations!
       placedLocations[event.target.id] = 'X'
       clickCount++
@@ -57,7 +57,7 @@ const onClick = (event) => { // event.target grabs the element!
       $(event.target).text('O')
       myClick = 'X'
       // updates turn box
-      $('#player').text('Player 1\'s | Place an X!')
+      $('#player').text('Player 1\'s Turn | Place an X!')
       // FILLS placedLocations[] array with locations!
       placedLocations[event.target.id] = 'O'
       clickCount++
@@ -136,7 +136,7 @@ const onClearBoard = (event) => {
     '' // 8
   ]
   myClick = 'X'
-  $('#player').text('Player 1\'s | Place an X!')
+  $('#player').text('Player 1\'s Turn | Place an X!')
   $('.game').text('')
   $('.game').on('click', onClick)
   clickCount = 0
@@ -233,6 +233,7 @@ const onCancel = (event) => {
   $('#message').hide()
 }
 const onChangePasswordButton = (event) => {
+  $('#message').hide()
   $('#cancel').show()
   $('#sign-up-button').hide()
   $('.change-password-box').show()
