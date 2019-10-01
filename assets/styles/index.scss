@@ -13,11 +13,20 @@ html {
   align-items: center;
 }
 
+.bottom-h1 {
+  margin-bottom: 2%;
+}
+
 h1 {
+  font-family: Impact, fantasy;
   color: $light-blue;
   display: flex;
   justify-content: center;
-  margin-bottom: 8%;
+  margin-bottom: 1%;
+}
+
+h5 {
+  color: $grey-blue;
 }
 
 body {
@@ -25,7 +34,7 @@ body {
 }
 
 .game-box {
-  margin-bottom: 5%;
+
 }
 
 button {
@@ -37,10 +46,20 @@ button {
   justify-content: center;
 }
 
+.half-title {
+  color: $grey-blue;
+}
+
+.message-section {
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+}
+
 .sign-in-box {
   display: flex;
   justify-content: center;
-  margin-bottom: 15%;
+  margin-bottom: 5%;
 }
 
 .sign-out-box {
@@ -84,6 +103,11 @@ h2 {
   margin: 0;
 }
 
+.change-password-box {
+  display: flex;
+  justify-content: center;
+}
+
 .turn-box {
   display: flex;
   justify-content: center;
@@ -94,7 +118,10 @@ h2 {
 .row {
   height: 50vmin;
   width: 50vmin;
-  margin: auto;
+  margin-top: 4%;
+  margin-bottom: 2%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .game {
@@ -132,7 +159,7 @@ h2 {
 
 .games-played-box {
   color: $light-blue;
-  margin: 0;
+  margin-left: 5%;
 }
 
 .game-box {

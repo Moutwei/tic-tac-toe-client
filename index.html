@@ -13,7 +13,8 @@
     </head>
 
     <body>
-      <h1>Welcome to Moutwei's TIC TAC TOE</h1>
+      <h1><span class="half-title">Welcome to Moutwei's</span></h1>
+      <h1 class="bottom-h1">TIC TAC TOE</h1>
         <section class="sign-in-box">
         <form id="sign-in">
           <input type="email" name="credentials[email]" placeholder="Enter Email...">
@@ -35,7 +36,13 @@
           </form>
           </section>
 
-          <h4 id="message"></h4>
+          <section class="games-played-box">
+            <h5>Games Played: <span id="games-played"></span></h5>
+          </section>
+
+          <section class="turn-box">
+            <p id="player" class="col-3 current-player"></p>
+          </section>
 
           <!--  BOOTSTRAP GRID for GAME -->
           <section class="game-box">
@@ -56,11 +63,15 @@
 
 
           <section class="change-password-box">
-          <form id="change-password">
-            <input type="password" name="passwords[old]" placeholder="Enter Old Password...">
-            <input type="password" name="passwords[new]" placeholder="Enter New Password...">
-            <button>Change Password</button>
-          </form>
+            <form id="change-password">
+              <input type="password" name="passwords[old]" placeholder="Enter Old Password...">
+              <input type="password" name="passwords[new]" placeholder="Enter New Password...">
+              <button>Change Password</button>
+            </form>
+          </section>
+
+          <section class="message-section">
+            <h4 id="message"></h4>
           </section>
 
           <!-- creates game api AND clears board -->
@@ -74,15 +85,6 @@
 
           <section class="cancel-button">
             <button id="cancel">Cancel</button>
-          </section>
-
-          <section class="turn-box">
-            <p id="player" class="col-3 current-player"></p>
-          </section>
-
-          <section class="games-played-box">
-            <h2>Games Played</h2>
-            <p id="games-played"></p>
           </section>
 
           <section class="sign-out-box">
