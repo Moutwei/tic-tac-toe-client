@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+    <body>
+      <h1><span class="half-title">Welcome to Moutwei's</span></h1>
+      <h1 class="bottom-h1">TIC TAC TOE</h1>
+        <section class="sign-in-box">
+        <form id="sign-in">
+          <input type="email" name="credentials[email]" placeholder="Enter Email...">
+          <input type="password" name="credentials[password]" placeholder="Enter Password...">
+          <button>Sign In</button>
+        </form>
+        </section>
+
+        <section class="sign-up-button">
+          <button id="sign-up-button">Sign Up</button>
+        </section>
+
+          <section class="sign-up-box">
+          <form id="sign-up">
+            <input type="email" name="credentials[email]" placeholder="Enter Email...">
+            <input type="password" name="credentials[password]" placeholder="Enter Password...">
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confrimation...">
+            <button>Sign Up</button> <!-- any button inside form will work when referencing the form id -->
+          </form>
+          </section>
+
+          <section class="games-played-box">
+            <h5>Games Played: <span id="games-played"></span></h5>
+          </section>
+
+          <section class="turn-box">
+            <p id="player" class="col-3 current-player"></p>
+          </section>
+
+          <!--  BOOTSTRAP GRID for GAME -->
+          <section class="game-box">
+            <form class="container">
+              <div class="row">
+                <h3 id="0" class="col-4 game"></h3>
+                <h3 id="1" class="col-4 game"></h3>
+                <h3 id="2" class="col-4 game"></h3>
+                <h3 id="3" class="col-4 game"></h3>
+                <h3 id="4" class="col-4 game"></h3>
+                <h3 id="5" class="col-4 game"></h3>
+                <h3 id="6" class="col-4 game"></h3>
+                <h3 id="7" class="col-4 game"></h3>
+                <h3 id="8" class="col-4 game"></h3>
+              </div>
+            </form>
+          </section>
+
+
+          <section class="change-password-box">
+            <form id="change-password">
+              <input type="password" name="passwords[old]" placeholder="Enter Old Password...">
+              <input type="password" name="passwords[new]" placeholder="Enter New Password...">
+              <button>Change Password</button>
+            </form>
+          </section>
+
+          <section class="message-section">
+            <h4 id="message"></h4>
+          </section>
+
+          <!-- creates game api AND clears board -->
+          <section class="new-game">
+            <button class="create-game clear-board">New Game</button>
+          </section>
+
+          <section class="cpb">
+            <button id="change-password-button">Change Password</button>
+          </section>
+
+          <section class="cancel-button">
+            <button id="cancel">Cancel</button>
+          </section>
+
+          <section class="sign-out-box">
+            <form class="sign-out">
+              <button>Sign Out</button>
+            </form>
+          </section>
+    </body>
+</html>
