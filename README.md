@@ -38,3 +38,4 @@ Numbers after the . represents each API update. If 0, no update added.
 
 - Would like to display game results for each player.
 - Organize more actions from events.js into ui.js.
+- I need to work on my deployment after each commit.
